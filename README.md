@@ -6,14 +6,16 @@
 город нахождения магазина;  
 количество пользователей, закреплённых в этом магазине.  
 Запрос:  
-`select c.store_id as "Store_ID", count(c.customer_id) as "Clients_count", CONCAT(s2.first_name, ' ',s2.last_name) AS "FI", c2.city as "Store's_city"  
+```sql
+select c.store_id as "Store_ID", count(c.customer_id) as "Clients_count", CONCAT(s2.first_name, ' ',s2.last_name) AS "FI", c2.city as "Store's_city"  
 from customer c  
 join store s on c.store_id = s.store_id   
 join staff s2 on s.manager_staff_id = s2.staff_id   
 join address a on s.address_id = a.address_id   
 JOIN city c2 on a.city_id = c2.city_id  
 group by c.store_id  
-HAVING count(c.customer_id) > 300;`  
+HAVING count(c.customer_id) > 300;
+```  
 ![](https://github.com/Svalker1989/SQL_Part2/blob/main/Z1.PNG)  
 ### Задание 2
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.  
